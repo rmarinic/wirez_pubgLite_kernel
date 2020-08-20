@@ -1,0 +1,90 @@
+;
+; Wirez.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample ; TODO: edit Class
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=Wirez.cat
+DriverVer = 08/20/2020,19.30.39.354
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+Wirez_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+Wirez.sys  = 1,,
+;
+
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64
+
+[Standard.NTamd64]
+%Wirez.DeviceDesc%=Wirez_Device, Root\Wirez ; TODO: edit hw-id
+
+[Wirez_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+Wirez.sys
+
+;-------------- Service installation
+[Wirez_Device.NT.Services]
+AddService = Wirez,%SPSVCINST_ASSOCSERVICE%, Wirez_Service_Inst
+
+; -------------- Wirez driver install sections
+[Wirez_Service_Inst]
+DisplayName    = %Wirez.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\Wirez.sys
+
+;
+;--- Wirez_Device Coinstaller installation ------
+;
+
+[Wirez_Device.NT.CoInstallers]
+AddReg=Wirez_Device_CoInstaller_AddReg
+CopyFiles=Wirez_Device_CoInstaller_CopyFiles
+
+[Wirez_Device_CoInstaller_AddReg]
+;
+
+
+[Wirez_Device_CoInstaller_CopyFiles]
+;
+
+
+[Wirez_Device.NT.Wdf]
+KmdfService =  Wirez, Wirez_wdfsect
+[Wirez_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+ClassName="Samples" ; TODO: edit ClassName
+DiskName = "Wirez Installation Disk"
+Wirez.DeviceDesc = "Wirez Device"
+Wirez.SVCDESC = "Wirez Service"

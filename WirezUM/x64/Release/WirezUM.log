@@ -1,0 +1,16 @@
+﻿  main.cpp
+C:\Users\Romano\source\repos\Wirez\WirezUM\main.cpp(83,9): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'uint64_t'
+C:\Users\Romano\source\repos\Wirez\WirezUM\main.cpp(83,9): message : consider using '%lld' in the format string
+C:\Users\Romano\source\repos\Wirez\WirezUM\main.cpp(83,9): message : consider using '%Id' in the format string
+C:\Users\Romano\source\repos\Wirez\WirezUM\main.cpp(83,9): message : consider using '%I64d' in the format string
+C:\Users\Romano\source\repos\Wirez\WirezUM\main.cpp(35,9): warning C4477: 'printf' : format string '%ld' requires an argument of type 'long', but variadic argument 1 has type 'uint64_t'
+C:\Users\Romano\source\repos\Wirez\WirezUM\main.cpp(35,9): message : consider using '%lld' in the format string
+C:\Users\Romano\source\repos\Wirez\WirezUM\main.cpp(35,9): message : consider using '%Id' in the format string
+C:\Users\Romano\source\repos\Wirez\WirezUM\main.cpp(35,9): message : consider using '%I64d' in the format string
+C:\Users\Romano\source\repos\Wirez\WirezUM\main.cpp(82): message : see reference to function template instantiation 'uint64_t call_hook<NULL_MEMORY*>(NULL_MEMORY *const )' being compiled
+  Generating code
+  3 of 22 functions (13.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  WirezUM.vcxproj -> C:\Users\Romano\source\repos\Wirez\x64\Release\WirezUM.exe

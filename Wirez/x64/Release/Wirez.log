@@ -1,0 +1,6 @@
+﻿  Building 'Wirez' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Release\Wirez.inf
+  Stamping [Version] section with DriverVer=08/20/2020,19.30.39.354
+  hook.cpp
+  Wirez.vcxproj -> C:\Users\Romano\source\repos\Wirez\x64\Release\Wirez.sys
+  Driver is 'Universal'.
